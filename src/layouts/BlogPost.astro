@@ -1,0 +1,105 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import BackgroundAnimation from "../components/BackgroundAnimation.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  github,
+  mainLink,
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <BackgroundAnimation />
+    <Header />
+    <main class="min-h-screen">
+      <article class="mx-auto max-w-5xl px-4 md:px-6 lg:px-8 py-10">
+        <div class="card bg-base-100 shadow-xl">
+          {
+            heroImage && (
+              <figure class="max-h-[420px] overflow-hidden">
+                <Image
+                  width={1020}
+                  height={510}
+                  src={heroImage}
+                  alt=""
+                  class="w-full object-cover"
+                />
+              </figure>
+            )
+          }
+          <div class="card-body space-y-6">
+            <div class="space-y-2">
+              <h1
+                class="card-title text-3xl md:text-4xl font-extrabold tracking-tight"
+              >
+                {title}
+              </h1>
+              <h2 class="card-title text-xl font-normal tracking-tight">
+                {description}
+              </h2>
+              <div class="text-sm opacity-70 space-y-1">
+                <FormattedDate date={pubDate} />
+                {
+                  updatedDate && (
+                    <div>
+                      Last updated on <FormattedDate date={updatedDate} />
+                    </div>
+                  )
+                }
+              </div>
+              <div class="flex flex-wrap gap-3 pt-2">
+                {
+                  github && (
+                    <a
+                      href={github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-sm btn-outline"
+                      aria-label="View on GitHub"
+                    >
+                      GitHub Source
+                    </a>
+                  )
+                }
+                {
+                  mainLink && (
+                    <a
+                      href={mainLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-sm btn-outline"
+                      aria-label="Open main site"
+                    >
+                      Live Demo
+                    </a>
+                  )
+                }
+              </div>
+            </div>
+            <hr class="border-base-300" />
+            <div class="prose prose-sm sm:prose lg:prose-lg max-w-none">
+              <slot />
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
