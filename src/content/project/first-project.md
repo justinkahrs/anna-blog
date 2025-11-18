@@ -2,7 +2,7 @@
 title: "UCSF Human Resources"
 description: "Improving the Manager Experience on the UCSF HR Website"
 pubDate: "October 01 2025"
-heroImage: "../../assets/hr-thumbnail.jpg"
+heroImage: "../../assets/hr-thumbnail.webp"
 ---
 
 A research-driven redesign of content, information architecture (IA), and manager-facing workflows
