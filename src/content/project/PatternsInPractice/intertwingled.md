@@ -2,7 +2,6 @@
 title: "Patterns in Practice: Intertwingled by Peter Morville"
 description: "Improving the Manager Experience on the UCSF HR Website"
 pubDate: "October 01 2025"
-heroImage: "../../assets/usability-testing.png"
 ---
 
 Some books name something you already understand, but haven't had the words for. *Intertwingled* did that for me. Morville’s writing captures the strange, beautiful chaos of working inside complex organizations, where information overlaps, ownership shifts, and no one quite agrees on what anything should be called. It feels oddly comforting to see that acknowledged in print.
