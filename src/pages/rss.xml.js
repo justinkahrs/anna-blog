@@ -6,7 +6,7 @@ import { parse as htmlParse } from "node-html-parser";
 import { getImage } from "astro:assets";
 const md = new MarkdownIt();
 const imagesGlob = import.meta.glob(
-  "/src/content/**/*.{jpeg,jpg,png,gif,webp,svg,avif}",
+  "/src/content/**/*.{jpeg,jpg,png,gif,webp,svg,avif}"
 );
 export async function GET(context) {
   const posts = await getCollection("blog");
@@ -51,19 +51,20 @@ export async function GET(context) {
       heroAbs && heroAbs.toLowerCase().endsWith(".png")
         ? "image/png"
         : heroAbs && heroAbs.toLowerCase().endsWith(".webp")
-          ? "image/webp"
-          : heroAbs && heroAbs.toLowerCase().endsWith(".gif")
-            ? "image/gif"
-            : heroAbs && heroAbs.toLowerCase().endsWith(".svg")
-              ? "image/svg+xml"
-              : heroAbs
-                ? "image/jpeg"
-                : undefined;
+        ? "image/webp"
+        : heroAbs && heroAbs.toLowerCase().endsWith(".gif")
+        ? "image/gif"
+        : heroAbs && heroAbs.toLowerCase().endsWith(".svg")
+        ? "image/svg+xml"
+        : heroAbs
+        ? "image/jpeg"
+        : undefined;
     items.push({
       title: post.data.title,
       description: post.data.description || SITE_DESCRIPTION,
       pubDate: post.data.pubDate,
       updatedDate: post.data.updatedDate,
+      categories: post.data.tags,
       link: `/projects/${post.id}/`,
       enclosure:
         heroAbs && type ? { url: heroAbs, length: 0, type } : undefined,
@@ -78,6 +79,6 @@ export async function GET(context) {
     site: context.site,
     xmlns: { media: "http://search.yahoo.com/mrss/" },
     items,
-    stylesheet: '/pretty-feed-v3.xsl',
+    stylesheet: "/pretty-feed-v3.xsl",
   });
 }
