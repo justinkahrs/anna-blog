@@ -33,18 +33,13 @@ The job isn’t sorting pages. The job is helping people find what matters.
 ## 1. Information isn’t neutral.
 We treat content like it’s a polite, passive thing waiting inside a CMS. But Morville reminds us that information carries culture, power, politics, memory, emotion, and bias. It’s shaped by the people who wrote it, the people who approved it, the norms that govern it, and the agendas it supports.
 
-It doesn’t just sit on a page.  
-It participates in the environment.  
-It has a personality.
+It doesn’t just sit on a page. It participates in the environment. It has a personality.
 ## 2. IA is something humans live inside, not something they browse.
 This line practically jumped off the page for me. Morville frames IA as an environment, not a navigation structure.
 
 At work, we often use the house analogy, and it fits perfectly: IA is a house, not a hallway. It’s not just labeled doors — it’s the lived experience of moving through the space. A home can have beautiful labels and still be confusing to live in if the rooms don’t connect in ways that make sense.
 
-People don’t browse IA; they inhabit it.  
-They feel it.  
-They hit its walls and weird corners.  
-They notice when a door leads to a broom closet instead of the thing they hoped to find.
+People don’t browse IA; they inhabit it. They feel it. They hit its walls and weird corners. They notice when a door leads to a broom closet instead of the thing they hoped to find.
 
 Meaning is in how the house _works_, not how it’s diagrammed.
 ## 3. Connections matter more than components.
