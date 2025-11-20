@@ -11,7 +11,9 @@ tags: ["Patterns in Practice", "Information Architecture"]
 Some books name something you already understand but never had the language for. I love when that happens. _Intertwingled_ did that for me. Morville captures the strange, beautiful chaos of working inside complex organizations where information overlaps, ownership shifts, and every team has a different definition for the same thing.
 
 It put words to the daily reality of navigating systems held together by history, politics, and well-meaning people doing their best in messy environments. When I’m deep in IA work for a site and everything starts to blur together, it’s oddly comforting to see that complexity acknowledged in print instead of treated like a failure of process.
-> **Users do not experience channels. They experience ecosystems.**
+
+**Users do not experience channels. They experience ecosystems.**
+
 My work has shown me how true this is. No matter how many systems we use or how many teams touch a workflow, people still expect one coherent experience. They follow whatever path helps them get a task done. And when something in one corner of the system is unclear, that confusion doesn’t stay contained. It spreads into every other touchpoint that depends on it. Even tiny inconsistencies ripple outward.
 
 Looking around at content structures, calendar invites, Jira boards, enterprise systems, or even the design process itself, it becomes impossible to ignore that everything is connected. That’s really the heartbeat of _Intertwingled_: information behaves like a living ecosystem. And once you see that, you can’t unsee it. It shows up when I’m driving, scrolling on social media, reading the news, or watching a random Simpsons episode where chaos and systems-thinking accidentally collide. More on that later.
