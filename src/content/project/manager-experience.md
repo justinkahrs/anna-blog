@@ -1,5 +1,5 @@
 ---
-title: "UCSF Human Resources"
+title: "A Task First Approach to Manager Support"
 description: "UCSF employs more than 15,000 people across its health system and campus. This project focused on the experience of people in manager roles who rely on the HR site to hire, onboard, and support their teams."
 pubDate: "October 01 2025"
 heroImage: "../../assets/hr-thumbnail.webp"
@@ -19,7 +19,7 @@ A research-driven redesign of content, information architecture (IA), and manage
 
 ## TL:DR
 
-Managers across UCSF reported difficulty locating HR information, understanding responsibilities, and navigating multiple disconnected systems. I led a multi-phase UX initiative to uncover these pain points, redefine the Manager experience, and create a task-first information architecture that aligns with how managers actually work. The result is a clearer, more intuitive, and more reliable HR website experience built on structured research, stakeholder collaboration, and evidence-based IA design.
+Managers reported difficulty locating HR information, understanding responsibilities, and navigating multiple disconnected systems. I led a multi-phase UX initiative to uncover these pain points, redefine the Manager experience, and create a task-first information architecture that aligns with how managers actually work. The result is a clearer, more intuitive, and more reliable HR website experience built on structured research, stakeholder collaboration, and evidence-based IA design.
 
 ---
 
