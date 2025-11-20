@@ -28,8 +28,7 @@ But meaning works differently.
 
 I’ve seen this over and over in interviews and card sorts. The logic people use to find information rarely matches the logic an institution uses to store it. That gap is where IA gets interesting. It’s where the translation happens, from organizational logic to human logic, and those two things are almost never the same.
 
-The job isn’t sorting pages.  
-The job is helping people find what matters.
+The job isn’t sorting pages. The job is helping people find what matters.
 # Here's what hit the hardest:
 ## 1. Information isn’t neutral.
 We treat content like it’s a polite, passive thing waiting inside a CMS. But Morville reminds us that information carries culture, power, politics, memory, emotion, and bias. It’s shaped by the people who wrote it, the people who approved it, the norms that govern it, and the agendas it supports.
