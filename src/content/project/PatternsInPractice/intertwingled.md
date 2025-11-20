@@ -5,6 +5,7 @@ pubDate: "November 2025"
 heroImage: "../../../assets/PinP-hero.png"
 tags: ["Patterns in Practice", "Information Architecture"]
 ---
+
 ![Intertwingled book cover](../../../assets/intertwingled-cover.jpg)
 
 Some books name something you already understand but never had the language for. I love when that happens. _Intertwingled_ did that for me. Morville captures the strange, beautiful chaos of working inside complex organizations where information overlaps, ownership shifts, and every team has a different definition for the same thing.
