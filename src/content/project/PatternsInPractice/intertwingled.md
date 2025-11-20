@@ -2,15 +2,11 @@
 title: "Patterns in Practice: Intertwingled by Peter Morville"
 description: "A collection of reflections on design books that have shaped how I think, work, and build for people."
 pubDate: "November 2025"
-heroImage: "../../assets/intertwingled-cover.jpg"
-tags:
-  [
-    "Patterns in Practice",
-    "Information Architecture",
-  ]
+heroImage: "../../../assets/intertwingled-cover.jpg"
+tags: ["Patterns in Practice", "Information Architecture"]
 ---
 
-Some books name something you already understand but never had the language for. I love when that happens. *Intertwingled* did that for me. Morville captures the strange, beautiful chaos of working inside complex organizations where information overlaps, ownership shifts, and every team has a different definition for the same thing.
+Some books name something you already understand but never had the language for. I love when that happens. _Intertwingled_ did that for me. Morville captures the strange, beautiful chaos of working inside complex organizations where information overlaps, ownership shifts, and every team has a different definition for the same thing.
 
 It put words to the daily reality of navigating systems held together by history, politics, and well-meaning people doing their best in messy environments. When I’m deep in IA work for a site and everything starts to blur together, it’s oddly comforting to see that complexity acknowledged in print instead of treated like a failure of process.
 
@@ -18,7 +14,7 @@ It put words to the daily reality of navigating systems held together by history
 
 My work has shown me how true this is. No matter how many systems we use or how many teams touch a workflow, people still expect one coherent experience. They follow whatever path helps them get a task done. And when something in one corner of the system is unclear, that confusion doesn’t stay contained. It spreads into every other touchpoint that depends on it. Even tiny inconsistencies ripple outward.
 
-Looking around at content structures, calendar invites, Jira boards, enterprise systems, or even the design process itself, it becomes impossible to ignore that everything is connected. That’s really the heartbeat of *Intertwingled*: information behaves like a living ecosystem. And once you see that, you can’t unsee it. It shows up when I’m driving, scrolling on social media, reading the news, or watching a random Simpsons episode where chaos and systems-thinking accidentally collide. More on that later.
+Looking around at content structures, calendar invites, Jira boards, enterprise systems, or even the design process itself, it becomes impossible to ignore that everything is connected. That’s really the heartbeat of _Intertwingled_: information behaves like a living ecosystem. And once you see that, you can’t unsee it. It shows up when I’m driving, scrolling on social media, reading the news, or watching a random Simpsons episode where chaos and systems-thinking accidentally collide. More on that later.
 
 ## Meaning, Not Menus
 
@@ -55,7 +51,7 @@ They feel it.
 They hit its walls and weird corners.  
 They notice when a door leads to a broom closet instead of the thing they hoped to find.
 
-Meaning is in how the house *works*, not how it’s diagrammed.
+Meaning is in how the house _works_, not how it’s diagrammed.
 
 ## 3. Connections matter more than components.
 
@@ -71,23 +67,24 @@ IA is full of quiet forces: mental models, language, policies, internal politics
 These things quietly shape how a system works and how users experience it. They’re the gravity of the environment.
 
 ## The Simpsons Snuck In, Somehow
-Then there was this weird, random moment that really drove all this home, and in a place I did not expect. I do not even watch *The Simpsons*. It is just not a show I gravitate toward. But my husband had an old episode on one night, and within a few minutes I found myself having a full systems thinking moment.
+
+Then there was this weird, random moment that really drove all this home, and in a place I did not expect. I do not even watch _The Simpsons_. It is just not a show I gravitate toward. But my husband had an old episode on one night, and within a few minutes I found myself having a full systems thinking moment.
 
 It was the Frank Grimes episode (“Homer’s Enemy”), where Grimes joins the power plant and immediately realizes that nothing in this workplace makes sense, at least not to him. Homer sleepwalks through his job with zero effort, zero expertise, and somehow endless praise. And the wildest part is that everyone else acts like this is totally normal. His coworkers do not question it. Why? Because they have adapted to the system they live inside. They have accepted its quirks, shortcuts, inconsistencies, and unwritten rules as “just the way things are.”
 
 ![Frank Grimes and Homer Simpson](https://m.media-amazon.com/images/M/MV5BOWI5ZTRmOTktYzA1My00MjI1LTg0N2QtZThiZjMxYzE4ZmNmXkEyXkFqcGc@._V1_.jpg)
 
-*Image credit: The Simpsons, Season 8 Episode 23 “Homer’s Enemy,” 20th Century Fox Television.*
+_Image credit: The Simpsons, Season 8 Episode 23 “Homer’s Enemy,” 20th Century Fox Television._
 
-To Grimes, the ecosystem is shocking. To everyone else, it is invisible.  
+To Grimes, the ecosystem is shocking. To everyone else, it is invisible.
 
 He is basically the only person in Springfield doing a heuristic evaluation. He is pointing out architectural flaws, mismatched expectations, illogical patterns, broken workflows, and everyone else just shrugs, because the mental model of the organization has swallowed the actual experience.
 
 That is the exact dynamic Morville writes about:
 
-- People experience systems differently depending on their position.  
-- Meaning emerges from context, not components.  
-- Invisible structures do more shaping than visible ones.  
+- People experience systems differently depending on their position.
+- Meaning emerges from context, not components.
+- Invisible structures do more shaping than visible ones.
 - Environments can normalize chaos so thoroughly that users stop noticing the friction.
 
 What looks like a comedy bit becomes a lesson in interconnected systems. Two people in the same architecture inhabit two different realities. The sense of a system is defined by familiarity, not logic. The environment shapes meaning even when the structure is objectively absurd. Normalization hides inconsistencies until someone new, like Grimes, steps in and sees them clearly.
@@ -96,7 +93,7 @@ It is ridiculous, it is funny, it is kind of painful, and it perfectly mirrors M
 
 ## Why This Matters
 
-Reading *Intertwingled* did not change the complexity of my work. It changed the way I understand it. The chaos is not accidental. The overlaps are not failures. The inconsistencies are not signs that something went wrong. They are signs that systems are living environments full of people, history, tension, gaps, and good intentions.
+Reading _Intertwingled_ did not change the complexity of my work. It changed the way I understand it. The chaos is not accidental. The overlaps are not failures. The inconsistencies are not signs that something went wrong. They are signs that systems are living environments full of people, history, tension, gaps, and good intentions.
 
 Users are not looking for perfectly labeled boxes. They are moving through the architecture trying to make meaning. My job is to shape the environment so they can.
 
