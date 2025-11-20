@@ -12,7 +12,7 @@ Some books name something you already understand but never had the language for.
 
 It put words to the daily reality of navigating systems held together by history, politics, and well-meaning people doing their best in messy environments. When I’m deep in IA work for a site and everything starts to blur together, it’s oddly comforting to see that complexity acknowledged in print instead of treated like a failure of process.
 
-**Users do not experience channels. They experience ecosystems.**
+>**Users do not experience channels. They experience ecosystems.**
 
 My work has shown me how true this is. No matter how many systems we use or how many teams touch a workflow, people still expect one coherent experience. They follow whatever path helps them get a task done. And when something in one corner of the system is unclear, that confusion doesn’t stay contained. It spreads into every other touchpoint that depends on it. Even tiny inconsistencies ripple outward.
 
@@ -23,7 +23,9 @@ It’s easy to picture IA as boxes and tidy tree-like structures, but real peopl
 When I first meet with clients, one of the most common instincts I see is the urge to organize a website by how their department or group is structured internally. And honestly? It makes perfect sense. People reach for the mental models they already know. Their org chart is familiar. Their teams, budgets, reporting lines, and responsibilities are familiar. Internal structure is the story they live inside every day, so it feels like the natural way to arrange information.
 
 But meaning works differently.
-**Users organize content by whatever helps them move forward.**  
+
+>**Users organize content by whatever helps them move forward.**  
+
 I’ve seen this over and over in interviews and card sorts. The logic people use to find information rarely matches the logic an institution uses to store it. That gap is where IA gets interesting. It’s where the translation happens, from organizational logic to human logic, and those two things are almost never the same.
 
 The job isn’t sorting pages.  
