@@ -29,3 +29,169 @@ body {
   exclude: rootcolor;
 }
 @plugin "@tailwindcss/typography";
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.back-link:hover {
+  opacity: 1;
+}
+/* font styling */
+@layer base {
+  :root {
+    --font-serif: "Playfair Display", serif;
+    --font-sans: "DM Sans", system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+  }
+}
+@layer components {
+  .prose {
+    font-family: var(--font-sans);
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    font-family: var(--font-serif);
+  }
+}
+/* ================================
+   Typography system – matches portfolio vibe
+   ================================ */
+
+:root {
+  --background: #1840c2;
+  --foreground: #e5e7eb;
+
+  --highlight: #60a5fa;
+  --primary: #2563eb;
+  --secondary: #475569;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}
+
+/* Global body text */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: #020617;            /* slate-950-ish */
+  background-color: #ffffff;
+}
+
+/* Constrain article width */
+main,
+article,
+.post-content {
+  max-width: 72ch;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Headings – Playfair, tight leading, slight negative tracking */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  line-height: var(--line-height-heading);
+  letter-spacing: -0.02em;
+  color: #020617;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 4vw, 3.5rem);
+  font-family: var(--font-serif);
+  line-height: 1.1;
+  color: var(--highlight);
+}
+
+h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-family: var(--font-serif);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-family: var(--font-serif);
+}
+
+p {
+  font-size: 1.0625rem; /* match portfolio body */
+  line-height: 1.7;
+}
+
+p + p {
+  margin-top: 0.9em;
+}
+
+/* Lists in articles */
+article ul,
+article ol,
+.post-content ul,
+.post-content ol {
+  margin: 0.9em 0 0.9em 1.4em;
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body);
+}
+
+/* Meta / eyebrow text (date, tags, etc.) */
+.post-meta,
+.meta,
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #64748b; /* slate-500 */
+}
+
+/* Links inside content – similar to portfolio */
+.post-content a,
+article a {
+  color: #1d4ed8; /* blue-700-ish */
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.post-content a:hover,
+article a:hover {
+  color: #0f172a;
+}
+
+/* Blockquotes as "pull quote lite" */
+.post-content blockquote,
+article blockquote {
+  margin: 1.8em 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid #e5e7eb;
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* Optional: dedicate a class for big pull quotes */
+.pull-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2vw + 1rem, 1.8rem);
+  line-height: 1.3;
+  margin: 2rem 0;
+  color: #0f172a;
+}

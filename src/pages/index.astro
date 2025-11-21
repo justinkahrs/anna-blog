@@ -8,8 +8,9 @@ import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
 const [latest, ...older] = posts;
 const latestExcerpt = latest?.data?.description ?? "";
 ---
@@ -20,97 +21,83 @@ const latestExcerpt = latest?.data?.description ?? "";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body class="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]">
+  <body
+    class="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]"
+  >
     <Header />
 
-    <main class="mx-auto max-w-5xl px-4 md:px-6 lg:px-8 py-20 flex-grow">
-      <!-- HEADER SECTION (Matches portfolio typography) -->
-      <section class="mb-20 text-center">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.24em] text-[var(--foreground)]/70">
-          Case Studies
-        </p>
+    <main class="px-4 md:px-6 lg:px-8 py-40 flex-grow">
+      <div class="mx-auto max-w-4xl">
+        <!-- HEADER SECTION -->
+        <section class="mb-8 text-center">
+          <p
+            class="text-xs sm:text-sm uppercase tracking-[0.24em] text-[var(--foreground)]/70"
+          >
+            Case Studies
+          </p>
 
-        <h1 class="mt-2 text-5xl sm:text-6xl font-serif tracking-tight text-[var(--highlight)]">
-          Work in Practice
-        </h1>
+          <h1
+            class="mt-2 text-5xl sm:text-6xl font-serif tracking-tight text-[var(--highlight)]"
+          >
+            Work in Practice
+          </h1>
 
-        <p class="mt-6 max-w-2xl mx-auto text-lg text-[var(--foreground)]/80">
-          I care about the craft, but I care more about what the experience feels like
-          for the person using it. Below are projects that show my process from
-          research to structure to design—all grounded in clarity and user needs.
-        </p>
-      </section>
+          <p class="mt-6 max-w-2xl mx-auto text-lg text-[var(--foreground)]/80">
+            I care about the craft, but I care more about what the experience
+            feels like for the person using it. Below are projects that show my
+            process from research to structure to design—all grounded in clarity
+            and user needs.
+          </p>
+        </section>
 
-      <!-- FEATURED (latest) CASE STUDY -->
-      <section class="mb-16">
-        <a href={`/projects/${latest.id}/`} class="block group">
-          <div class="rounded-3xl overflow-hidden bg-[var(--card-bg)] shadow-lg transition hover:shadow-xl">
-            {latest.data.heroImage && (
-              <figure class="aspect-[21/9] overflow-hidden">
-                <Image
-                  src={latest.data.heroImage}
-                  width={1440}
-                  height={616}
-                  alt=""
-                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                />
-              </figure>
-            )}
-            <div class="px-6 py-8 space-y-4">
-              <h2 class="text-3xl sm:text-4xl font-serif text-[var(--highlight)]">
-                {latest.data.title}
-              </h2>
+        <!-- GRID OF ALL POSTS — Matches 3-up Skills.tsx layout -->
+        <section>
+          <ul class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {
+              posts.map((post) => (
+                <li class="list-none h-full">
+                  <a href={`/projects/${post.id}/`} class="group block h-full">
+                    <div
+                      class="
+              relative flex h-full flex-col
+              rounded-[2rem] bg-white
+              border border-[var(--highlight)]/80
+              overflow-hidden shadow-sm
+              transition-shadow group-hover:shadow-xl
+            "
+                    >
+                      {post.data.heroImage && (
+                        <figure class="aspect-[3/2] overflow-hidden">
+                          <Image
+                            src={post.data.heroImage}
+                            width={720}
+                            height={360}
+                            alt=""
+                            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                          />
+                        </figure>
+                      )}
 
-              <p class="text-sm text-[var(--foreground)]/60">
-                <FormattedDate date={latest.data.pubDate} />
-              </p>
+                      <div class="px-6 py-6 sm:px-7 sm:py-4 space-y-3">
+                        <h4 class="text-xl font-serif text-[var(--highlight)] line-clamp-3">
+                          {post.data.title}
+                        </h4>
 
-              {latestExcerpt && (
-                <p class="text-[var(--foreground)]/80 leading-relaxed">
-                  {latestExcerpt}
-                </p>
-              )}
-            </div>
-          </div>
-        </a>
-      </section>
-
-      <!-- GRID OF OLDER POSTS (Portfolio-style cards) -->
-      <section>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {older.map((post) => (
-            <li class="list-none">
-              <a href={`/projects/${post.id}/`} class="group block h-full">
-                <div class="rounded-3xl bg-[var(--card-bg)] shadow-md hover:shadow-xl transition-shadow h-full overflow-hidden">
-                  {post.data.heroImage && (
-                    <figure class="aspect-[2/1] overflow-hidden">
-                      <Image
-                        src={post.data.heroImage}
-                        width={720}
-                        height={360}
-                        alt=""
-                        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                      />
-                    </figure>
-                  )}
-
-                  <div class="px-6 py-6 space-y-3">
-                    <h3 class="text-xl font-serif text-[var(--highlight)] line-clamp-2">
-                      {post.data.title}
-                    </h3>
-
-                    <p class="text-sm text-[var(--foreground)]/60">
-                      <FormattedDate date={post.data.pubDate} />
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
+                        <p class="text-sm text-[var(--foreground)]/60">
+                          <FormattedDate date={post.data.pubDate} />
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
     </main>
 
+    <!-- Footer must be *after* main -->
     <Footer />
   </body>
 </html>

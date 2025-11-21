@@ -45,8 +45,7 @@ Meaning is in how the house _works_, not how it’s diagrammed.
 ## 3. Connections matter more than components.
 Morville is subtle about this, but it’s everywhere in the book. We love to obsess over components and templates, especially in design systems, because they’re tangible. They’re neat. They give the illusion of order.
 
-But the real story lives in the relationships between things.  
-Not just between pages, but between people, tasks, expectations, tools, constraints, and the hidden systems humming underneath.
+But the real story lives in the relationships between things. Not just between pages, but between people, tasks, expectations, tools, constraints, and the hidden systems humming underneath.
 
 ## 4. The invisible stuff does the heavy lifting.
 IA is full of quiet forces: mental models, language, policies, internal politics, legacy decisions, expectations, and old habits someone set ten years ago that no one remembers but everyone still follows.
@@ -74,7 +73,7 @@ That is the exact dynamic Morville writes about:
 
 What looks like a comedy bit becomes a lesson in interconnected systems. Two people in the same architecture inhabit two different realities. The sense of a system is defined by familiarity, not logic. The environment shapes meaning even when the structure is objectively absurd. Normalization hides inconsistencies until someone new, like Grimes, steps in and sees them clearly.
 
-It is ridiculous, it is funny, it is kind of painful, and it perfectly mirrors Morville’s point: users live inside ecosystems they did not design, and meaning is shaped by the structure around them.
+It's ridiculous, it's funny, kind of painful, and it perfectly mirrors Morville’s point: users live inside ecosystems they did not design, and meaning is shaped by the structure around them.
 ## Why This Matters
 Reading _Intertwingled_ did not change the complexity of my work. It changed the way I understand it. The chaos is not accidental. The overlaps are not failures. The inconsistencies are not signs that something went wrong. They are signs that systems are living environments full of people, history, tension, gaps, and good intentions.
 
