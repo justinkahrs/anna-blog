@@ -6,13 +6,25 @@ import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import DicebearThumbnail from "../components/DicebearThumbnail.astro";
+import { getReadingTime } from "../reading-time";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const rawPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const [latest, ...older] = posts;
-const latestExcerpt = latest?.data?.description ?? "";
+// attach a readTime field to each post's data
+const posts = rawPosts.map((post) => ({
+  ...post,
+  data: {
+    ...post.data,
+    readTime: getReadingTime(post.body),
+  },
+}));
+
+const allTags = Array.from(
+  new Set(posts.flatMap((post) => post.data.tags ?? []))
+).sort((a, b) => a.localeCompare(b));
 ---
 
 <!doctype html>
@@ -26,66 +38,165 @@ const latestExcerpt = latest?.data?.description ?? "";
   >
     <Header />
 
-    <main class="px-4 md:px-6 lg:px-8 py-40 flex-grow">
-      <div class="mx-auto max-w-4xl">
-        <!-- HEADER SECTION -->
-        <section class="mb-8 text-center">
-          <p
-            class="text-xs sm:text-sm uppercase tracking-[0.24em] text-[var(--foreground)]/70"
+    <main
+      class="px-4 md:px-6 lg:px-8 py-40 flex-grow max-w-7xl mx-auto !max-w-[100rem]"
+    >
+      <div class="mx-auto max-w-6xl">
+        <!-- HEADER SECTION WITH TOPIC FILTERS -->
+        <section class="mb-12">
+          <div
+            class="grid gap-10 items-start md:grid-cols-[minmax(0,2fr)_minmax(0,1.5fr)]"
           >
-            Case Studies
-          </p>
+            <!-- LEFT: TITLE + BLURB -->
+            <div>
+              <p
+                class="text-xs sm:text-sm uppercase tracking-[0.24em] text-[var(--highlight)]/70"
+              >
+                Work, Thinking, and Practice
+              </p>
+              <h1
+                class="mt-2 text-5xl sm:text-6xl font-serif tracking-tight text-[var(--highlight)]"
+              >
+                Work in Practice
+              </h1>
+              <p class="mt-6 max-w-2xl text-lg text-zinc-600">
+  A deep dive into the projects, ideas, and process work that define my practice, grounded in the same point of view you’ll find across 
+  <a
+    href="https://annakahrs.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex items-center gap-1 underline text-[var(--highlight)] hover:text-[var(--primary)] transition"
+  >
+    my portfolio
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13 5h6m0 0v6m0-6L10 14" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 19l14-14" />
+    </svg>
+  </a>.
+</p>
+            </div>
 
-          <h1
-            class="mt-2 text-5xl sm:text-6xl font-serif tracking-tight text-[var(--highlight)]"
-          >
-            Work in Practice
-          </h1>
+            <!-- RIGHT: TAG FILTER CHIPS -->
+            <div class="space-y-4">
+              <p
+                class="text-sm font-medium text-zinc-600 text-left md:text-right"
+              >
+                Other topics
+              </p>
+              <div class="flex flex-wrap gap-3 justify-start md:justify-end">
+                <!-- "All topics" chip -->
+                <button
+                  type="button"
+                  data-tag-filter="all"
+                  class="inline-flex items-center rounded-full
+                    border border-[var(--highlight)]/25
+                    bg-white/5 px-4 py-1.5
+                    text-[0.7rem] uppercase tracking-[0.18em]
+                    text-[var(--highlight)]/85
+                    transition"
+                >
+                  All topics
+                </button>
 
-          <p class="mt-6 max-w-2xl mx-auto text-lg text-[var(--foreground)]/80">
-            I care about the craft, but I care more about what the experience
-            feels like for the person using it. Below are projects that show my
-            process from research to structure to design—all grounded in clarity
-            and user needs.
-          </p>
+                {
+                  allTags.map((tag) => (
+                    <button
+                      type="button"
+                      data-tag-filter={tag}
+                      class="inline-flex items-center rounded-full
+                        border border-[var(--highlight)]/25
+                        bg-white/5 px-4 py-1.5
+                        text-[0.7rem] uppercase tracking-[0.18em]
+                        text-[var(--highlight)]/85
+                        transition"
+                    >
+                      {tag}
+                    </button>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
         </section>
 
-        <!-- GRID OF ALL POSTS — Matches 3-up Skills.tsx layout -->
-        <section>
-          <ul class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- GRID OF ALL POSTS — 3-up layout -->
+        <section class="mt-16">
+          <ul class="grid grid-cols-1 md:grid-cols-3 gap-10">
             {
               posts.map((post) => (
-                <li class="list-none h-full">
+                <li
+                  class="list-none h-full"
+                  data-post-tags={
+                    post.data.tags ? post.data.tags.join(",") : ""
+                  }
+                >
                   <a href={`/projects/${post.id}/`} class="group block h-full">
                     <div
-                      class="
-              relative flex h-full flex-col
-              rounded-[2rem] bg-white
-              border border-[var(--highlight)]/80
-              overflow-hidden shadow-sm
-              transition-shadow group-hover:shadow-xl
-            "
+                      class="h-full flex flex-col 
+                        rounded-[2rem] overflow-hidden
+                        bg-white shadow-md border border-[var(--highlight)]/50
+                        transition-all duration-200
+                        group-hover:shadow-xl group-hover:-translate-y-1"
                     >
-                      {post.data.heroImage && (
-                        <figure class="aspect-[3/2] overflow-hidden">
+                      {/* Thumbnail */}
+                      <figure class="aspect-[3/2] overflow-hidden">
+                        {post.data.heroImage ? (
                           <Image
                             src={post.data.heroImage}
                             width={720}
-                            height={360}
+                            height={480}
                             alt=""
                             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                           />
-                        </figure>
-                      )}
+                        ) : (
+                          <DicebearThumbnail seed={post.id} />
+                        )}
+                      </figure>
 
-                      <div class="px-6 py-6 sm:px-7 sm:py-4 space-y-3">
-                        <h4 class="text-xl font-serif text-[var(--highlight)] line-clamp-3">
+                      {/* Text */}
+                      <div class="px-6 py-6 flex flex-col gap-3">
+                        {/* DATE + READ TIME */}
+                        <div class="flex items-center justify-between text-xs text-zinc-600">
+                          <span>
+                            {post.data.pubDate.toLocaleDateString("en-US", {
+                              month: "long",
+                              year: "numeric",
+                            })}
+                          </span>
+
+                          <span>{post.data.readTime}</span>
+                        </div>
+
+                        {/* TAGS — show only the first one */}
+                        {post.data.tags && post.data.tags.length > 0 && (
+                          <div class="flex flex-wrap gap-2">
+                            <span
+                              class="text-[0.65rem] uppercase tracking-wider
+                                px-3 py-1 rounded-full
+                                bg-[var(--card-bg)]/30 text-[var(--highlight)]
+                                border border-[var(--highlight)]/40"
+                            >
+                              {post.data.tags[0]}
+                            </span>
+                          </div>
+                        )}
+
+                        {/* TITLE */}
+                        <h4
+                          class="font-serif text-[1.35rem] leading-snug
+                            text-[var(--highlight)] 
+                            group-hover:text-white transition"
+                        >
                           {post.data.title}
                         </h4>
 
-                        <p class="text-sm text-[var(--foreground)]/60">
-                          <FormattedDate date={post.data.pubDate} />
-                        </p>
+                        {/* AUTHOR + TITLE AS A TIGHT STACK */}
+                        <div class="flex flex-col gap-[2px]">
+                          <p class="text-sm text-zinc-900/70">By Anna Kahrs</p>
+                          <p class="text-xs text-zinc-900/50">
+                            Lead UX Designer
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </a>
@@ -97,7 +208,74 @@ const latestExcerpt = latest?.data?.description ?? "";
       </div>
     </main>
 
-    <!-- Footer must be *after* main -->
     <Footer />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll("[data-tag-filter]");
+        const posts = document.querySelectorAll("[data-post-tags]");
+
+        if (!filterButtons.length || !posts.length) return;
+
+        function setActiveButton(activeButton) {
+          filterButtons.forEach((button) => {
+            const isActive = button === activeButton;
+
+            // Inactive base styles
+            button.classList.toggle("bg-white/5", !isActive);
+            button.classList.toggle("text-[var(--highlight)]/85", !isActive);
+            button.classList.toggle("border-[var(--highlight)]/25", !isActive);
+
+            // Inactive hover: soft glow
+            button.classList.toggle("hover:bg-white/10", !isActive);
+            button.classList.toggle(
+              "hover:border-[var(--highlight)]/60",
+              !isActive
+            );
+
+            // Active base: solid primary-hover, inverted text
+            button.classList.toggle("bg-[var(--primary-hover)]", isActive);
+            button.classList.toggle("text-white", isActive);
+            button.classList.toggle("border-[var(--primary-hover)]", isActive);
+
+            // Active hover: none (no extra hover classes)
+            if (isActive) {
+              button.classList.remove("hover:bg-white/10");
+              button.classList.remove("hover:border-[var(--highlight)]/60");
+            }
+          });
+        }
+
+        function getPostTags(post) {
+          const raw = post.dataset.postTags || "";
+          return raw
+            .split(",")
+            .map((tag) => tag.trim())
+            .filter(Boolean);
+        }
+
+        // Default: "All topics" selected on load
+        const allButton = document.querySelector('[data-tag-filter="all"]');
+        if (allButton) {
+          setActiveButton(allButton);
+        }
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const filterTag = button.dataset.tagFilter;
+
+            setActiveButton(button);
+
+            posts.forEach((post) => {
+              const tags = getPostTags(post);
+              const shouldShow =
+                filterTag === "all" || tags.includes(filterTag);
+
+              post.classList.toggle("hidden", !shouldShow);
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>

@@ -2,7 +2,7 @@
 title: "A Task First Approach to Manager Support"
 description: "UCSF employs more than 15,000 people across its health system and campus. This project focused on the experience of people in manager roles who rely on the HR site to hire, onboard, and support their teams."
 pubDate: "October 01 2025"
-heroImage: "../../assets/hr-thumbnail.webp"
+# heroImage: "../../assets/hr-thumbnail.webp"
 tags:
   [
     "UX Research",

@@ -27,6 +27,7 @@ body {
 @import "tailwindcss";
 @plugin "daisyui" {
   exclude: rootcolor;
+  exclude: properties;
 }
 @plugin "@tailwindcss/typography";
 
@@ -111,7 +112,7 @@ h4 {
   line-height: var(--line-height-heading);
   letter-spacing: -0.02em;
   color: #020617;
-  margin-top: 0.4em;
+  margin-top: 0.2em;
   margin-bottom: 0.4em;
 }
 
@@ -134,13 +135,10 @@ h3 {
 }
 
 p {
-  font-size: 1.0625rem; /* match portfolio body */
+/* match portfolio body */
   line-height: 1.7;
 }
 
-p + p {
-  margin-top: 0.9em;
-}
 
 /* Lists in articles */
 article ul,

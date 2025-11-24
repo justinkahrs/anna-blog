@@ -2,7 +2,7 @@
 title: "Patterns in Practice: Intertwingled by Peter Morville"
 description: "A collection of reflections on design books that have shaped how I think, work, and build for people."
 pubDate: "November 2025"
-heroImage: "../../../assets/PinP-hero.png"
+# heroImage: "../../../assets/PinP-hero.png"
 tags: ["Patterns in Practice", "Information Architecture"]
 ---
 
