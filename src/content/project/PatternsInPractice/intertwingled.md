@@ -1,8 +1,10 @@
 ---
 title: "Patterns in Practice: Intertwingled by Peter Morville"
 description: "A collection of reflections on design books that have shaped how I think, work, and build for people."
-pubDate: "November 2025"
+pubDate: 2025-11-01
 # heroImage: "../../../assets/PinP-hero.png"
+author: "Anna Kahrs"
+role: "Lead UX Designer"
 tags: ["Patterns in Practice", "Information Architecture"]
 ---
 
