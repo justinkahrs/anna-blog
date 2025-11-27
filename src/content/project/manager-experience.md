@@ -2,7 +2,6 @@
 title: "A Task First Approach to Manager Support"
 description: "UCSF employs more than 15,000 people across its health system and campus. This project focused on the experience of people in manager roles who rely on the HR site to hire, onboard, and support their teams."
 pubDate: 2025-11-01
-# heroImage: "../../assets/hr-thumbnail.webp"
 author: "Anna Kahrs"
 role: "Lead UX Designer"
 tags:
@@ -34,12 +33,12 @@ Managers reported difficulty locating HR information, understanding responsibili
 
 ### Deliverables
 
-1. Multi-phase research plan
-2. Interview findings report
-3. Manager survey and analysis
+1. [Multi-phase research plan](https://drive.google.com/file/d/178hfEApIvYcUH-Rqs166e9GWCRO5SIRB/view?usp=drive_link)
+2. [Interview findings report](https://docs.google.com/presentation/d/1zQp_5XqMa2nbC0yBI70v7JvzCcsczA4P/edit?usp=sharing&ouid=107382119923465510250&rtpof=true&sd=true)
+3. [Manager survey and analysis](https://drive.google.com/file/d/1mxfEwuqB-IW8UigngBwNEvbwiwnLIDn8/view?usp=sharing)
 4. Whiteboard IA workshop (Figma) with HR partners
 5. Content model and redesigned IA for Manager Landing Page
-6. Prototype direction and testing roadmap
+6. Prototype direction and [testing roadmap](https://drive.google.com/file/d/1vZlECMIof-4drw5XmkbzS0pJ7oI--9qf/view?usp=sharing)
 
 ---
 
@@ -53,6 +52,11 @@ This caused:
 - Loss of trust in HR website accuracy
 - Confusion between HR vs. department responsibilities
 - Difficulty completing essential tasks like hiring, performance, and leaves
+
+![Before look of HR Manager's Landing Page](../../assets/627469cc-ad04-42fa-bf4d-6477ddd23d70_rw_1920.jpg)
+
+*Before look of the Manager Landing Page.*
+
 
 ---
 
@@ -82,7 +86,11 @@ Validated the core themes and revealed the highest-priority needs.
 - Most challenging tasks: leaves, navigating policies, HR systems
 - Most desired improvements: search, clearer navigation, role-based filtering
 
-Everything uncovered in interviews showed up again quantitatively in the manager survey.
+![Key findings overview slide](../../assets/e53e75f5-3280-4cae-9b81-0f8a0f7deff3_rw_1200.png)
+
+![Top tasks survey bar graph](../../assets/69dd6df9-e6e1-42a8-8084-3cb6b793c188_rw_1200.png)
+
+*Everything uncovered in interviews showed up again quantitatively in the manager survey.*
 
 ---
 
@@ -157,9 +165,16 @@ Using the findings, I led a collaborative workshop to determine what belonged on
 - A simple framework for explaining systems
 - A governance model for future updates
 
+![FigJam workshop board](../../assets/7a55c7fe-2de5-4f1b-b1b0-e2cc7d108581_rw_1920.png)
+*Screenshot of FigJam workshop*
+
 ---
 
 ## The Redesigned Manager Landing Page
+
+![New Manager Landing Page](../../assets/430e9d1b-d572-4ede-8416-0809dc719126_rw_1920.png)
+
+*Screenshot of new layout for the Manager Landing Page*
 
 The new design organizes content the way managers actually work:
 
@@ -169,8 +184,7 @@ Structured around lifecycle stages.
 
 ### **Managing Your Team**
 
-Consolidates day-to-day responsibilities:  
-Accommodations, Compensation, Performance, Leaves, Timekeeping, Recognition, Wellness.
+Consolidates day-to-day responsibilities: Accommodations, Compensation, Performance, Leaves, Timekeeping, Recognition, Wellness.
 
 ### **Policies & Guidelines**
 
@@ -213,9 +227,19 @@ Throughout this project, I:
 
 I used Q3 2024 to Q3 2025 as a comparison because both periods represent stable usage outside the redesign and testing cycle. This avoids inflated internal traffic and provides a realistic view of how managers use the page.
 
-- **Visits increased 74%** (846 → 1470).
-- **Pageviews increased 81%** (1033 → 1872).
-- **Bounce rate improved** from 59% to 53% (down 6 points).
+![Line graph of page visits trending up](../../assets/2524447a-2d4c-4edc-ab72-41bd1e942954_rw_1920.png)
+
+**Visits increased 74%** (846 → 1470)
+
+![Line graph of pageviews trending up](../../assets/04d97b3a-079a-4b3e-ad2f-1a441b82f397_rw_1920.png)
+
+**Pageviews increased 81%** (1033 → 1872)
+
+![Line graph of bounce rates trending down](../../assets/83467b67-6f46-49f2-a75b-08168a1c5ec0_rw_1920.png)
+
+**Bounce rate improved** from 59% to 53% (down 6 points)
+
+### Additional impact
 - **Direct first-time visits doubled** from 9% to 19%.
 - **Downstream navigation shifted** from broad HR pages to manager-specific tools:  
   Recruiting Resources, Equity Review, New Hires Manager Guide.

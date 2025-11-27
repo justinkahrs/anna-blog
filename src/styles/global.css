@@ -1,8 +1,9 @@
-
 /* === Portfolio Color System === */
 :root {
   --background: #1840c2;
   --foreground: #e5e7eb;
+  --body-text: #18181b;
+
 
   --highlight: #60a5fa;
 
@@ -17,13 +18,29 @@
   --gradient-a: #3b82f6;  /* lighter cool blue */
   --gradient-b: #a855f7;  /* lighter violet */
   --gradient-c: #f472b6;  /* lighter pink */
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  @layer components {
+  /* Match bullet and number color to body text */
+  .prose ul > li::marker,
+  .prose ol > li::marker,
+  article ul > li::marker,
+  article ol > li::marker {
+    color: var(--body-text) !important;
+  }
+}
 }
 
-/* OPTIONAL: Page background */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--body-text);
+  background-color: #ffffff;
 }
+
 @import "tailwindcss";
 @plugin "daisyui" {
   exclude: rootcolor;
@@ -31,6 +48,7 @@ body {
 }
 @plugin "@tailwindcss/typography";
 
+/* Back link */
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -42,21 +60,21 @@ body {
 .back-link:hover {
   opacity: 1;
 }
-/* font styling */
-@layer base {
-  :root {
-    --font-serif: "Playfair Display", serif;
-    --font-sans: "DM Sans", system-ui, sans-serif;
-  }
 
+/* === Fonts via Tailwind layers === */
+@layer base {
   body {
     font-family: var(--font-sans);
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-serif);
   }
 }
+
 @layer components {
   .prose {
     font-family: var(--font-sans);
@@ -69,38 +87,17 @@ body {
     font-family: var(--font-serif);
   }
 }
+
 /* ================================
-   Typography system – matches portfolio vibe
+   Layout / Typography system
    ================================ */
-
-:root {
-  --background: #1840c2;
-  --foreground: #e5e7eb;
-
-  --highlight: #60a5fa;
-  --primary: #2563eb;
-  --secondary: #475569;
-
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
-}
-
-/* Global body text */
-body {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-body);
-  color: #020617;            /* slate-950-ish */
-  background-color: #ffffff;
-}
 
 /* Constrain article width */
 main,
 article,
 .post-content {
-  max-width: 72ch;
+  max-width: 104ch;
   margin-inline: auto;
-  padding-inline: 1.5rem;
 }
 
 /* Headings – Playfair, tight leading, slight negative tracking */
@@ -111,40 +108,43 @@ h4 {
   font-family: var(--font-serif);
   line-height: var(--line-height-heading);
   letter-spacing: -0.02em;
-  color: #020617;
-  margin-top: 0.2em;
+  color: var(--body-text);
   margin-bottom: 0.4em;
 }
 
 h1 {
   font-size: clamp(2.75rem, 4vw, 3.5rem);
-  font-family: var(--font-serif);
   line-height: 1.1;
   color: var(--highlight);
 }
 
 h2 {
   font-size: clamp(2rem, 3vw, 2.6rem);
-  font-family: var(--font-serif);
   line-height: 1.15;
 }
 
 h3 {
   font-size: clamp(1.4rem, 2vw, 2rem);
-  font-family: var(--font-serif);
 }
 
-p {
-/* match portfolio body */
+/* Paragraph + list item body text */
+p,
+li,
+.post-content p,
+.post-content li,
+article p,
+article li {
   line-height: 1.7;
+  color: var(--body-text);
 }
-
 
 /* Lists in articles */
 article ul,
 article ol,
 .post-content ul,
-.post-content ol {
+.post-content ol,
+.prose ul,
+.prose ol {
   margin: 0.9em 0 0.9em 1.4em;
   font-size: var(--font-size-body-lg);
   line-height: var(--line-height-body);
@@ -163,7 +163,8 @@ article ol,
 
 /* Links inside content – similar to portfolio */
 .post-content a,
-article a {
+article a,
+.prose a {
   color: #1d4ed8; /* blue-700-ish */
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -171,13 +172,15 @@ article a {
 }
 
 .post-content a:hover,
-article a:hover {
+article a:hover,
+.prose a:hover {
   color: #0f172a;
 }
 
 /* Blockquotes as "pull quote lite" */
 .post-content blockquote,
-article blockquote {
+article blockquote,
+.prose blockquote {
   margin: 1.8em 0;
   padding-left: 1.25rem;
   border-left: 3px solid #e5e7eb;
@@ -193,3 +196,32 @@ article blockquote {
   margin: 2rem 0;
   color: #0f172a;
 }
+
+/* ============================================
+   Emphasis styling inside article prose
+   ============================================ */
+
+/* Color for all emphasis types, including inside lists */
+.prose :where(strong, b, em, i),
+.prose :where(strong, b, em, i) :where(span),
+article :where(strong, b, em, i),
+article :where(strong, b, em, i) :where(span),
+.post-content :where(strong, b, em, i),
+.post-content :where(strong, b, em, i) :where(span) {
+  color: var(--body-text);
+}
+
+/* Strong / bold weight */
+.prose :where(strong, b),
+article :where(strong, b),
+.post-content :where(strong, b) {
+  font-weight: 600;
+}
+
+/* Italic style */
+.prose :where(em, i),
+article :where(em, i),
+.post-content :where(em, i) {
+  font-style: italic;
+}
+

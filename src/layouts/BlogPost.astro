@@ -9,14 +9,12 @@ import Header from "../components/Header.astro";
 type Props = CollectionEntry<"blog">["data"];
 
 const {
-  title,
-  description,
   pubDate,
   updatedDate,
+  title,
+  description,
   heroImage,
-  github,
-  mainLink,
-  tags,          // ← ADD THIS
+  tags, // ← ADD THIS
 } = Astro.props;
 ---
 
@@ -28,7 +26,7 @@ const {
     <Header />
     <main class="min-h-screen">
       <article class="mx-auto max-w-5xl px-4 md:px-6 lg:px-8 py-10">
-        <div class="card bg-base-100 shadow-xl">
+        <div class="card bg-white shadow-xl">
           {
             heroImage && (
               <figure class="max-h-[420px] overflow-hidden">
@@ -44,76 +42,56 @@ const {
           }
           <div class="card-body space-y-6">
             <div class="space-y-2">
-
+              <!-- META -->
+               <div class="text-sm opacity-70 space-y-1">
+                <FormattedDate date={pubDate} />
+                {
+                  updatedDate && (
+                    <div>
+                      Last updated on <FormattedDate date={updatedDate} />
+                    </div>
+                  )
+                }
+              </div>
+              <!-- TAG CHIPS (Portfolio style) -->
+              {
+                tags && tags.length > 0 && (
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    {tags.map((tag) => (
+                      <span
+                        class="inline-flex items-center rounded-full
+                             border border-[var(--highlight)]/80
+                             bg-white/5 px-3 py-1
+                             text-[0.65rem] uppercase tracking-[0.18em]
+                             text-[var(--highlight)]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )
+              }
               <!-- TITLE + DESCRIPTION -->
-              <h1 class="card-title text-3xl md:text-4xl font-extrabold tracking-tight">
+              <h1
+                class="card-title text-3xl md:text-4xl font-extrabold tracking-tight"
+              >
                 {title}
               </h1>
 
               <h2 class="card-title text-xl font-normal tracking-tight">
                 {description}
               </h2>
-
-              <!-- TAG CHIPS (Portfolio style) -->
-              {tags && tags.length > 0 && (
-                <div class="mt-4 flex flex-wrap gap-2">
-                  {tags.map(tag => (
-                    <span
-                      class="inline-flex items-center rounded-full
-                             border border-[var(--highlight)]/80
-                             bg-white/5 px-3 py-1
-                             text-[0.65rem] uppercase tracking-[0.18em]
-                             text-[var(--highlight)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              <!-- META -->
-              <div class="text-sm opacity-70 space-y-1">
-                <FormattedDate date={pubDate} />
-                {updatedDate && (
-                  <div>
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )}
-              </div>
-
-              <!-- BUTTONS -->
-              <div class="flex flex-wrap gap-3 pt-2">
-                {github && (
-                  <a
-                    href={github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-sm btn-outline"
-                    aria-label="View on GitHub"
-                  >
-                    GitHub Source
-                  </a>
-                )}
-                {mainLink && (
-                  <a
-                    href={mainLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-sm btn-outline"
-                    aria-label="Open main site"
-                  >
-                    Live Demo
-                  </a>
-                )}
-              </div>
+              
+            
             </div>
 
             <hr class="border-base-300" />
 
-            <div class="prose prose-sm sm:prose lg:prose-lg max-w-none">
+            <div
+              class="prose prose-sm sm:prose lg:prose-lg max-w-[88ch] mx-auto"
+            >
               <slot />
             </div>
-
           </div>
         </div>
       </article>
