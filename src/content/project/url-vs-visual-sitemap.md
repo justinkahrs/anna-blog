@@ -18,12 +18,11 @@ tags:
 
 A URL sitemap is the Hoarders house: overstuffed rooms, forgotten boxes, mystery piles, and content no one wants to claim. A visual sitemap is the Marie Kondo version of the same space: intentional, organized, and shaped around what users actually need. You need both to understand what you have and what you want the experience to be.
 
-
-In UX and information architecture, the word "sitemap" gets thrown around as if it describes one thing. In reality, there are two completely different versions: the URL sitemap and the visual sitemap. 
-
 ---
 
 ## What a URL sitemap actually is
+
+In UX and information architecture, the word "sitemap" gets thrown around as if it describes one thing. In reality, there are two completely different versions: the URL sitemap and the visual sitemap. 
 
 A URL sitemap is the full inventory of every page that exists on your site. Think of it as the behind the scenes footage of your website. Nothing is curated. Nothing is simplified. It is the honest truth of what is out there.
 
