@@ -151,6 +151,8 @@ Search engines may not depend on clean URLs, but they still reward sites with pr
 
 ---
 
+## Where the two maps meet
+
 The power of information architecture comes from treating these as separate layers, each with its own purpose, language, and audience. When used together, they create websites that make sense both behind the scenes and on the surface.
 
 The work of IA happens in the space between the two maps. One shows the raw material. The other shows the shape it should take for the user.
