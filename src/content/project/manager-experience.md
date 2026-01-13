@@ -6,6 +6,7 @@ author: "Anna Kahrs"
 role: "Lead UX Designer"
 tags:
   [
+    "Case Study",
     "UX Research",
     "Content Strategy",
     "Information Architecture",
