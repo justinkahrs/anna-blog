@@ -1,5 +1,5 @@
 ---
-title: "I’m Not Here to Have Fun: A Survey Design Problem"
+title: "Read the Room: A Survey Design Problem"
 description: "User satisfaction surveys often assume enjoyment is the goal. This post explores why that framing fails for task driven, enterprise, and institutional tools."
 pubDate: "2026-01-05"
 author: "Anna Kahrs"

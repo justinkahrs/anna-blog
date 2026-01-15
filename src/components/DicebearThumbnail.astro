@@ -10,14 +10,7 @@ interface Props {
 const { seed, size = 500 } = Astro.props;
 
 // Brand palette (no #)
-const palette = [
-  "60a5fa",
-  "2563eb",
-  "3b82f6",
-  "a855f7",
-  "f472b6",
-  "e5e7eb",
-];
+const palette = ["60a5fa", "2563eb", "3b82f6", "a855f7", "f472b6", "e5e7eb"];
 
 const avatar = createAvatar(shapes, {
   seed,
@@ -25,7 +18,7 @@ const avatar = createAvatar(shapes, {
 
   // Use transparent background so we can insert a gradient behind it
   // backgroundColor: ["0000"],
-  
+
   shape1Color: palette,
   shape2Color: palette,
   shape3Color: palette,
@@ -41,7 +34,7 @@ let svg = avatar.toString();
 
 // Insert a <defs> gradient + background rect
 const gradientSvg = `
-  <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="100%" viewBox="0 0 ${size} ${size}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="thumbGradient" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#3b82f6" /> <!-- gradient-a -->
