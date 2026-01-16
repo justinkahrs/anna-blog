@@ -82,11 +82,11 @@ const [featuredPost, ...remainingPosts] = posts;
               </div>
 
               <h1
-                class="text-4xl md:text-5xl font-serif font-bold tracking-tight text-zinc-900 leading-tight"
+                class="text-4xl md:text-5xl font-serif font-bold tracking-tight text-black leading-tight"
               >
                 <a
                   href={`/projects/${featuredPost.id}/`}
-                  class="hover:text-[#6366f1] transition-colors line-clamp-3"
+                  class="text-black hover:text-[#6366f1] transition-colors line-clamp-3"
                 >
                   {featuredPost.data.title}
                 </a>
@@ -105,7 +105,19 @@ const [featuredPost, ...remainingPosts] = posts;
                 <div class="flex flex-col leading-none">
                   <span class="text-sm font-bold text-zinc-900">Anna Kahrs</span
                   >
-                  <span class="text-xs text-zinc-500">Lead UX Designer</span>
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="text-xs text-zinc-500">Lead UX Designer</span>
+                    <span class="text-zinc-300">•</span>
+                    <span class="text-xs text-zinc-500">
+                      {
+                        featuredPost.data.pubDate.toLocaleDateString("en-US", {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        })
+                      }
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,19 +129,20 @@ const [featuredPost, ...remainingPosts] = posts;
           <div class="flex flex-col gap-8">
             <div class="flex flex-row justify-between items-start gap-4">
               <div class="flex flex-col gap-2">
-                <h2
-                  class="text-xs font-bold uppercase tracking-widest text-[#6366f1] leading-none"
+                <span
+                  class="text-[10px] font-sans font-bold uppercase tracking-widest text-[#6366f1] leading-none"
                 >
                   What’s been on my mind
-                </h2>
+                </span>
                 <p class="text-sm text-zinc-500">
-                Writing across design, systems, and everything in between.
+                  Writing across design, systems, and everything in between.
                 </p>
               </div>
               <div class="hidden md:flex items-start pt-0">
                 <div class="relative">
                   <input
                     type="text"
+                    id="search-input"
                     placeholder="Search Blog"
                     class="w-64 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-[#6366f1] focus:border-[#6366f1] leading-none"
                   />
@@ -181,10 +194,12 @@ const [featuredPost, ...remainingPosts] = posts;
             {
               remainingPosts.map((post) => (
                 <li
-                  class="list-none h-full"
+                  class="list-none h-full post-item"
                   data-post-tags={
                     post.data.tags ? post.data.tags.join(",") : ""
                   }
+                  data-post-title={post.data.title.toLowerCase()}
+                  data-post-description={post.data.description.toLowerCase()}
                 >
                   <a href={`/projects/${post.id}/`} class="group block h-full">
                     <div
@@ -269,14 +284,39 @@ const [featuredPost, ...remainingPosts] = posts;
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const filterButtons = document.querySelectorAll("[data-tag-filter]");
-        const posts = document.querySelectorAll("[data-post-tags]");
+        const searchInput = document.getElementById(
+          "search-input",
+        ) as HTMLInputElement;
+        const posts = document.querySelectorAll(".post-item");
+
+        let currentTag = "all";
+        let searchQuery = "";
 
         if (!filterButtons.length || !posts.length) return;
+
+        function updateFilters() {
+          posts.forEach((post: any) => {
+            const tags = (post.getAttribute("data-post-tags") || "")
+              .split(",")
+              .map((t) => t.trim().toLowerCase());
+            const title = post.getAttribute("data-post-title") || "";
+            const description =
+              post.getAttribute("data-post-description") || "";
+
+            const matchesTag =
+              currentTag === "all" || tags.includes(currentTag.toLowerCase());
+            const matchesSearch =
+              !searchQuery ||
+              title.includes(searchQuery) ||
+              description.includes(searchQuery);
+
+            post.classList.toggle("hidden", !(matchesTag && matchesSearch));
+          });
+        }
 
         function setActiveButton(activeButton) {
           filterButtons.forEach((button) => {
             const isActive = button === activeButton;
-
             if (isActive) {
               button.classList.add(
                 "bg-[#6366f1]",
@@ -303,35 +343,24 @@ const [featuredPost, ...remainingPosts] = posts;
           });
         }
 
-        function getPostTags(post: Element) {
-          const raw = post.getAttribute("data-post-tags") || "";
-          return raw
-            .split(",")
-            .map((tag) => tag.trim())
-            .filter(Boolean);
-        }
-
-        // Default: "All topics" selected on load
-        const allButton = document.querySelector('[data-tag-filter="all"]');
-        if (allButton) {
-          setActiveButton(allButton);
-        }
-
-        filterButtons.forEach((button) => {
+        filterButtons.forEach((button: any) => {
           button.addEventListener("click", () => {
-            const filterTag = button.dataset.tagFilter;
-
+            currentTag = button.dataset.tagFilter;
             setActiveButton(button);
-
-            posts.forEach((post) => {
-              const tags = getPostTags(post);
-              const shouldShow =
-                filterTag === "all" || tags.includes(filterTag);
-
-              post.classList.toggle("hidden", !shouldShow);
-            });
+            updateFilters();
           });
         });
+
+        if (searchInput) {
+          searchInput.addEventListener("input", (e: any) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            updateFilters();
+          });
+        }
+
+        // Initialize
+        const allButton = document.querySelector('[data-tag-filter="all"]');
+        if (allButton) setActiveButton(allButton);
       });
     </script>
   </body>
