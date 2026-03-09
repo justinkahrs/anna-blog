@@ -22,9 +22,9 @@ const {
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body>
+  <body class="bg-[var(--background)] text-zinc-900">
     <Header />
-    <main class="min-h-screen">
+    <main class="min-h-screen pt-[60px]">
       <div class="mx-auto max-w-6xl px-4 md:px-0 pt-8">
         <nav class="text-sm breadcrumbs text-[var(--highlight)]/70">
           <ul>
@@ -56,7 +56,7 @@ const {
         </nav>
       </div>
       <article class="mx-auto max-w-6xl px-4 md:px-0 py-10">
-        <div class="card bg-white shadow-xl">
+        <div class="card bg-white shadow-sm border border-zinc-900/10">
           {
             heroImage && (
               <figure class="max-h-[420px] overflow-hidden">
@@ -90,10 +90,9 @@ const {
                     {tags.map((tag) => (
                       <span
                         class="inline-flex items-center rounded-full
-                             border border-[var(--highlight)]/80
+                             border border-zinc-900/20
                              bg-white/5 px-3 py-1
-                             text-[0.65rem] uppercase tracking-[0.18em]
-                             text-[var(--highlight)]"
+                             text-[0.65rem] uppercase tracking-[0.18em] text-zinc-700"
                       >
                         {tag}
                       </span>

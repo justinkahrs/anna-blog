@@ -1,39 +1,330 @@
----
-import { SITE_TITLE } from "../consts";
----
+<header id="site-nav" class="fixed inset-x-0 top-0 z-[80] h-[60px] bg-[var(--background)]">
+  <div class="relative z-10 mx-auto flex h-full w-full max-w-[1920px] items-center justify-between px-6">
+    <div class="relative flex items-center gap-3">
+      <div class="relative flex items-center gap-1.5" id="brand-menu-wrap">
+        <a
+          href="/"
+          aria-label="Go to home"
+          class="font-serif inline-flex aspect-square w-9 items-center justify-center rounded-full bg-[var(--primary)] text-sm font-semibold text-white"
+        >
+          AK
+        </a>
+        <button
+          type="button"
+          id="brand-menu-toggle"
+          class="nav-logo-toggle inline-flex h-8 w-8 items-center justify-center rounded-full text-zinc-800/75 transition-colors duration-150 hover:text-zinc-900"
+          aria-label="Toggle brand menu"
+          aria-expanded="false"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.75"
+            stroke="currentColor"
+            class="h-4 w-4 transition-transform duration-200"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+          </svg>
+        </button>
 
-<header
-  class="navbar bg-white/30 backdrop-blur-3xl shadow-sm sticky top-0 z-50 py-4"
->
-  <div class="max-w-6xl mx-auto w-full px-4 md:px-0 flex justify-between">
-    <div class="navbar-start w-auto">
+        <div id="brand-menu" class="absolute left-0 top-[3.1rem] hidden w-[22rem] rounded-2xl border border-zinc-900/10 bg-[var(--background)] p-2 shadow-xl shadow-zinc-900/10">
+          <a href="https://www.annakahrs.com/#home" class="flex w-full items-start gap-3 rounded-xl p-3 text-left hover:bg-zinc-900/5">
+            <span class="font-serif mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-xs font-semibold text-white">AC</span>
+            <span class="min-w-0">
+              <span class="submenu-label block text-sm font-semibold text-zinc-900">Anna Kahrs Portfolio</span>
+              <span class="submenu-blurb mt-1 block text-xs leading-relaxed text-zinc-600">Main site for UX work, case studies, and featured projects.</span>
+            </span>
+          </a>
+          <a href="https://blog.annakahrs.com" class="flex w-full items-start gap-3 rounded-xl p-3 text-left hover:bg-zinc-900/5">
+            <span class="font-serif mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-xs font-semibold text-white">WP</span>
+            <span class="min-w-0">
+              <span class="submenu-label block text-sm font-semibold text-zinc-900">Work in Practice</span>
+              <span class="submenu-blurb mt-1 block text-xs leading-relaxed text-zinc-600">A blog with practical UX notes, process write-ups, and ideas.</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hidden h-6 w-px bg-zinc-900/15 lg:block"></div>
+
       <a
-        href="/"
-        class="text-2xl font-serif font-bold text-[#60a5fa] hover:opacity-80 transition-opacity whitespace-nowrap"
+        href="https://www.annakahrs.com"
+        class="nav-link hidden lg:inline-flex items-center rounded-full px-3 py-1.5 text-sm font-semibold tracking-[0.12em] text-zinc-900/90 transition hover:text-[var(--highlight)]"
       >
-        {SITE_TITLE}
+        Home
+      </a>
+
+      <div class="relative hidden items-center lg:flex" id="project-menu-wrap">
+        <button
+          type="button"
+          id="project-menu-toggle"
+          class="nav-link inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-semibold tracking-[0.12em] text-zinc-900/90 transition hover:text-[var(--highlight)]"
+          aria-label="Toggle projects menu"
+          aria-expanded="false"
+        >
+          Projects
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.75"
+            stroke="currentColor"
+            class="h-4 w-4 transition-transform duration-200"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+          </svg>
+        </button>
+
+        <div id="project-menu" class="absolute left-0 top-[3.1rem] hidden w-[21rem] rounded-2xl border border-zinc-900/10 bg-[var(--background)] p-3 shadow-xl shadow-zinc-900/10">
+          <div class="px-1 py-1">
+            <p class="submenu-heading mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">UX Research</p>
+            <div class="space-y-1">
+              <a href="/projects/manager-experience" class="block w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-zinc-900 hover:bg-zinc-900/5">The Manager Journey</a>
+            </div>
+          </div>
+          <div class="px-1 py-1">
+            <p class="submenu-heading mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">Visual Design</p>
+            <div class="space-y-1">
+              <button type="button" disabled class="block w-full cursor-not-allowed rounded-lg px-3 py-2 text-left text-sm font-medium text-zinc-900 opacity-60">Digital A11y Chatbot (Coming soon)</button>
+              <button type="button" disabled class="block w-full cursor-not-allowed rounded-lg px-3 py-2 text-left text-sm font-medium text-zinc-900 opacity-60">Staff Intranet (Coming soon)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="https://www.annakahrs.com/#about"
+        class="nav-link hidden lg:inline-flex items-center rounded-full px-3 py-1.5 text-sm font-semibold tracking-[0.12em] text-zinc-900/90 transition hover:text-[var(--highlight)]"
+      >
+        About
       </a>
     </div>
 
-    <div class="navbar-end w-auto">
-      <div class="flex flex-col items-end leading-tight">
-        <span class="text-sm font-sans text-zinc-600">
-          <i class="opacity-80">by</i>
-          <a
-            href="https://www.annakahrs.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-blue-600 hover:underline font-medium"
-          >
-            Anna Kahrs
-          </a>
-        </span>
-        <span
-          class="text-xs font-sans text-zinc-500 uppercase tracking-tight whitespace-nowrap"
-        >
-          UX Designer and Overthinker
-        </span>
+    <div class="hidden items-center gap-2 lg:flex">
+      <a
+        href="https://www.linkedin.com/in/annakahrs/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link inline-flex items-center rounded-full px-3 py-1.5 text-sm font-semibold tracking-[0.12em] text-zinc-900/90 transition hover:text-[var(--highlight)]"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://www.annakahrs.com/contact"
+        class="inline-flex cursor-pointer rounded-xl bg-zinc-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-zinc-900/10 transition hover:bg-zinc-800"
+      >
+        Contact
+      </a>
+    </div>
+
+    <button
+      type="button"
+      id="mobile-menu-toggle"
+      class="ml-auto inline-flex items-center justify-center rounded-full p-2 text-zinc-900 hover:bg-zinc-900/10 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900/40 lg:hidden"
+      aria-label="Toggle mobile menu"
+      aria-expanded="false"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-7 w-7 nav-open-icon"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5M3.75 12h16.5m-16.5 6.75h16.5"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="hidden h-7 w-7 nav-close-icon"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="fixed inset-0 top-[60px] hidden bg-[var(--background)] lg:hidden">
+    <div class="px-6 pb-12 pt-10">
+      <ul class="flex flex-col items-center gap-6 py-20 tracking-[0.2em]">
+        <li>
+          <a href="https://www.annakahrs.com/#about" class="nav-link flex items-center gap-2 p-8 text-lg font-semibold uppercase text-zinc-900/90 transition hover:text-[var(--highlight)]">About</a>
+        </li>
+      </ul>
+      <div class="mt-6 flex justify-center">
+        <a href="https://www.annakahrs.com/contact" class="inline-flex cursor-pointer rounded-xl bg-zinc-900 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-zinc-900/10 transition hover:bg-zinc-800">Contact</a>
       </div>
     </div>
   </div>
 </header>
+
+<script>
+  const nav = document.getElementById("site-nav");
+  const brandWrap = document.getElementById("brand-menu-wrap");
+  const brandToggle = document.getElementById("brand-menu-toggle");
+  const brandMenu = document.getElementById("brand-menu");
+  const projectWrap = document.getElementById("project-menu-wrap");
+  const projectToggle = document.getElementById("project-menu-toggle");
+  const projectMenu = document.getElementById("project-menu");
+  const mobileToggle = document.getElementById("mobile-menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const openIcon = mobileToggle?.querySelector(".nav-open-icon");
+  const closeIcon = mobileToggle?.querySelector(".nav-close-icon");
+  let brandCloseTimer = 0;
+  let projectCloseTimer = 0;
+
+  if (window.location.pathname.startsWith("/projects/")) {
+    nav?.classList.add("is-project-page");
+  }
+
+  const closeBrandMenu = () => {
+    brandMenu?.classList.add("hidden");
+    brandToggle?.setAttribute("aria-expanded", "false");
+    const icon = brandToggle?.querySelector("svg");
+    icon?.classList.remove("rotate-180");
+  };
+
+  const openBrandMenu = () => {
+    if (brandCloseTimer) {
+      window.clearTimeout(brandCloseTimer);
+      brandCloseTimer = 0;
+    }
+    brandMenu?.classList.remove("hidden");
+    brandToggle?.setAttribute("aria-expanded", "true");
+    const icon = brandToggle?.querySelector("svg");
+    icon?.classList.add("rotate-180");
+  };
+
+  const closeProjectMenu = () => {
+    projectMenu?.classList.add("hidden");
+    projectToggle?.setAttribute("aria-expanded", "false");
+    const icon = projectToggle?.querySelector("svg");
+    icon?.classList.remove("rotate-180");
+  };
+
+  const openProjectMenu = () => {
+    if (projectCloseTimer) {
+      window.clearTimeout(projectCloseTimer);
+      projectCloseTimer = 0;
+    }
+    projectMenu?.classList.remove("hidden");
+    projectToggle?.setAttribute("aria-expanded", "true");
+    const icon = projectToggle?.querySelector("svg");
+    icon?.classList.add("rotate-180");
+  };
+
+  const closeBrandMenuSoon = () => {
+    if (brandCloseTimer) {
+      window.clearTimeout(brandCloseTimer);
+    }
+    brandCloseTimer = window.setTimeout(() => {
+      closeBrandMenu();
+      brandCloseTimer = 0;
+    }, 160);
+  };
+
+  const closeProjectMenuSoon = () => {
+    if (projectCloseTimer) {
+      window.clearTimeout(projectCloseTimer);
+    }
+    projectCloseTimer = window.setTimeout(() => {
+      closeProjectMenu();
+      projectCloseTimer = 0;
+    }, 160);
+  };
+
+  brandToggle?.addEventListener("click", () => {
+    if (brandMenu?.classList.contains("hidden")) openBrandMenu();
+    else closeBrandMenu();
+  });
+
+  projectToggle?.addEventListener("click", () => {
+    if (projectMenu?.classList.contains("hidden")) openProjectMenu();
+    else closeProjectMenu();
+  });
+
+  brandWrap?.addEventListener("mouseenter", openBrandMenu);
+  brandWrap?.addEventListener("mouseleave", closeBrandMenuSoon);
+  brandMenu?.addEventListener("mouseenter", openBrandMenu);
+  brandMenu?.addEventListener("mouseleave", closeBrandMenuSoon);
+  projectWrap?.addEventListener("mouseenter", openProjectMenu);
+  projectWrap?.addEventListener("mouseleave", closeProjectMenuSoon);
+  projectMenu?.addEventListener("mouseenter", openProjectMenu);
+  projectMenu?.addEventListener("mouseleave", closeProjectMenuSoon);
+
+  document.addEventListener("click", (event) => {
+    const target = event.target as Node;
+    if (brandWrap && !brandWrap.contains(target)) closeBrandMenu();
+    if (projectWrap && !projectWrap.contains(target)) closeProjectMenu();
+  });
+
+  mobileToggle?.addEventListener("click", () => {
+    const isClosed = mobileMenu?.classList.contains("hidden");
+    if (isClosed) {
+      mobileMenu?.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      mobileToggle.setAttribute("aria-expanded", "true");
+      openIcon?.classList.add("hidden");
+      closeIcon?.classList.remove("hidden");
+      return;
+    }
+
+    mobileMenu?.classList.add("hidden");
+    document.body.style.overflow = "";
+    mobileToggle.setAttribute("aria-expanded", "false");
+    openIcon?.classList.remove("hidden");
+    closeIcon?.classList.add("hidden");
+  });
+</script>
+
+<style>
+  .is-project-page {
+    background: #020b1f;
+  }
+
+  .is-project-page #brand-menu,
+  .is-project-page #project-menu,
+  .is-project-page #mobile-menu {
+    background: #020b1f;
+    border-color: rgb(228 228 231 / 0.15);
+  }
+
+  .is-project-page .nav-link {
+    color: rgb(244 244 245 / 0.9);
+  }
+
+  .is-project-page .nav-link:hover {
+    color: rgb(255 255 255);
+  }
+
+  .is-project-page .nav-logo-toggle {
+    color: rgb(228 228 231 / 0.85);
+  }
+
+  .is-project-page .nav-logo-toggle:hover {
+    color: rgb(255 255 255);
+  }
+
+  .is-project-page #brand-menu a:hover,
+  .is-project-page #project-menu a:hover {
+    background: rgb(255 255 255 / 0.1);
+  }
+
+  .is-project-page .submenu-label {
+    color: rgb(244 244 245);
+  }
+
+  .is-project-page .submenu-blurb,
+  .is-project-page .submenu-heading {
+    color: rgb(161 161 170);
+  }
+
+  .is-project-page .bg-zinc-900 {
+    background: rgb(244 244 245);
+    color: rgb(24 24 27);
+  }
+</style>

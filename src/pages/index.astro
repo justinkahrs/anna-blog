@@ -35,13 +35,11 @@ const [featuredPost, ...remainingPosts] = posts;
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
 
-  <body
-    class="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]"
-  >
+  <body class="min-h-screen flex flex-col bg-[var(--background)] text-zinc-900">
     <Header />
 
     <main
-      class="px-4 md:px-6 lg:px-8 py-20 flex-grow max-w-7xl mx-auto !max-w-[100rem]"
+      class="px-4 md:px-6 lg:px-8 pt-[92px] pb-20 flex-grow max-w-7xl mx-auto !max-w-[100rem]"
     >
       <div class="mx-auto max-w-6xl">
         <!-- FEATURED ARTICLE SECTION -->
@@ -69,12 +67,12 @@ const [featuredPost, ...remainingPosts] = posts;
             <div class="flex flex-col gap-6">
               <div class="flex items-center gap-4">
                 <span
-                  class="text-xs font-bold uppercase tracking-widest text-[#6366f1]"
+                  class="text-xs font-bold uppercase tracking-widest text-[var(--highlight)]"
                   >Featured</span
                 >
                 {
                   featuredPost.data.tags && featuredPost.data.tags[0] && (
-                    <span class="rounded-full bg-[#6366f1] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                    <span class="rounded-full bg-zinc-900 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
                       {featuredPost.data.tags[0]}
                     </span>
                   )
@@ -86,7 +84,7 @@ const [featuredPost, ...remainingPosts] = posts;
               >
                 <a
                   href={`/projects/${featuredPost.id}/`}
-                  class="text-black hover:text-[#6366f1] transition-colors line-clamp-3"
+                  class="text-black hover:text-[var(--highlight)] transition-colors line-clamp-3"
                 >
                   {featuredPost.data.title}
                 </a>
@@ -144,7 +142,7 @@ const [featuredPost, ...remainingPosts] = posts;
                     type="text"
                     id="search-input"
                     placeholder="Search Blog"
-                    class="w-64 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-[#6366f1] focus:border-[#6366f1] leading-none"
+                  class="w-64 rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-zinc-900 focus:border-zinc-900 leading-none"
                   />
                   <svg
                     class="absolute right-3 top-[10px] h-3.5 w-3.5 text-zinc-400"
@@ -167,7 +165,7 @@ const [featuredPost, ...remainingPosts] = posts;
                 <button
                   type="button"
                   data-tag-filter="all"
-                  class="inline-flex items-center rounded-full border border-transparent bg-[#6366f1] px-4 py-2 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-[#4f46e5]"
+                  class="inline-flex items-center rounded-full border border-transparent bg-zinc-900 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-zinc-800"
                 >
                   Recent Articles
                 </button>
@@ -205,7 +203,7 @@ const [featuredPost, ...remainingPosts] = posts;
                     <div
                       class="h-full flex flex-col 
                         rounded-[2rem] overflow-hidden
-                        bg-white shadow-md border border-[var(--highlight)]/50
+                        bg-white shadow-md border border-zinc-900/10
                         transition-all duration-200
                         group-hover:shadow-xl group-hover:-translate-y-1"
                     >
@@ -244,8 +242,8 @@ const [featuredPost, ...remainingPosts] = posts;
                             <span
                               class="text-[0.65rem] uppercase tracking-wider
                                 px-3 py-1 rounded-full
-                                bg-[var(--card-bg)]/30 text-[var(--highlight)]
-                                border border-[var(--highlight)]/40"
+                                bg-zinc-100/70 text-zinc-700
+                                border border-zinc-200"
                             >
                               {post.data.tags[0]}
                             </span>
@@ -255,8 +253,8 @@ const [featuredPost, ...remainingPosts] = posts;
                         {/* TITLE */}
                         <h4
                           class="font-serif text-[1.35rem] leading-snug
-                            text-[var(--highlight)] 
-                            group-hover:text-white transition"
+                            text-zinc-900 
+                            group-hover:text-[var(--highlight)] transition"
                         >
                           {post.data.title}
                         </h4>
