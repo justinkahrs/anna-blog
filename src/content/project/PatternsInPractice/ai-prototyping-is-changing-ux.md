@@ -28,6 +28,8 @@ Stakeholders could explore the system as if it were already built. And while tha
 
 ### The Acceleration Is Real
 
+![How to draw an owl](../../../assets/draw-owl.png)
+
 There is no denying the productivity shift. AI tools make it possible to move from rough structure to interactive prototype dramatically faster than traditional design workflows. What used to unfold gradually can now appear almost instantly (with a good prompt, that is). Instead of presenting fragments of a system, why not just present the entire thing?
 
 This time around, stakeholders weren’t reacting to isolated components or page templates. They were navigating a full environment. From a communication standpoint, that clarity is powerful. People understand systems better when they can experience them.
