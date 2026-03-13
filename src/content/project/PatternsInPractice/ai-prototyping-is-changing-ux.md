@@ -18,7 +18,7 @@ AI prototyping lets designers build realistic, interactive prototypes much faste
 
 ## Changing the Pace of the Work
 
-I recently tried an AI-assisted prototyping workflow on a large portal project, and it completely changed the pace of the work. Normally, building a coherent prototype for something like a staff portal takes me three to six weeks. I move deliberately through the work. Maybe a directory pattern, then a news card pattern, then navigation structures. Each piece is reviewed and refined before the next one appears. It is intentionally incremental because the goal is to align on the system as it emerges.
+I recently tried an AI-assisted prototyping workflow on a large portal project, and it completely changed the pace of the work. Normally, building a coherent prototype for something like a staff portal takes me three to six weeks. I move deliberately through the work. Maybe a directory pattern, then a news card pattern, then navigation structures. Each piece is reviewed and refined before the next one appears. It is intentionally incremental. The product requirements are usually already defined in a PRD, but the design work is compartmentalized so we can get focused feedback on each piece before moving forward.
 
 This time, I took a different path.
 
