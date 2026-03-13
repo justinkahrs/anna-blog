@@ -24,6 +24,8 @@ This time, I took a different path.
 
 I started with a very basic wireframe structure in Figma and then moved it into Figma Make to generate a working interface. From there I brought it into Google’s Antigravity environment to iterate directly in code, pushed the project into a repository, and deployed the prototype through Vercel so it could be shared and explored. Within about two weeks I had a fully clickable portal running online. Pages connected, navigation worked, and interactions were present in a way that felt surprisingly close to a real product.
 
+![UX Process for AI Prototyping](../../../assets/ai-prototyping-process.png)
+
 Stakeholders could explore the system as if it were already built. And while that speed was exciting, it also surfaced something that I think UX teams need to start talking about. AI prototyping may be accelerating us past parts of the design process that still matter.
 
 ### The Acceleration Is Real
